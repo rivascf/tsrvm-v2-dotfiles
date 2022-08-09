@@ -393,3 +393,20 @@
   393  jpl
   394  ll ~/Downloads/
   395  history >> ~/Downloads/tsrvm-v2-dotfiles/history_bk_080822 
+  396  cd ~/Downloads/tsrvm-v2-dotfiles/history_bk_080822 
+  397  cd ~/Downloads/tsrvm-v2-dotfiles
+  398  gst
+  399  g add .
+  400  g commit -m "Added history_bk_080822 file"
+  401  gst
+  402  git push -u origin main
+  403  cp ~/.bashrc ./.bashrc 
+  404  cp ~/.bash_aliases ./.bash_aliases 
+  405  gst
+  406  g add .
+  407  g commit -m "Updated bashrc and bash_aliases config files"
+  408  git push -u origin main
+  409  history | grep dpkg
+  410  sudo dpkg -i ~/Downloads/code_1.70.0-1659589288_amd64.deb 
+  411  updta
+  412  history > ~/Downloads/tsrvm-v2-dotfiles/history_bk_080822 
