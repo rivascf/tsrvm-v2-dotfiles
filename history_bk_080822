@@ -1,0 +1,395 @@
+    1  sudo apt-get -y update && sudo apt -y update && sudo apt -y upgrade
+    2  echo "create bash_aliases file and add update-all update-upgrade alises"
+    3  touch ~/.bash_aliases
+    4  echo "alias update-upgrade='sudo apt-get -y update && sudo apt -y update && sudo apt -y upgrade'" >> ~/.bash_aliases 
+    5  echo "alias update-all='sudo apt-get -y update && sudo apt -y update'" >> ~/.bash_aliases 
+    6  source ~/.bashrc 
+    7  update-all
+    8  ll
+    9  echo "Instalando prerequisitos: Nerdfonts, lsd, git"
+   10  sudo apt-get update
+   11  sudo apt update && sudo apt upgrade -y
+   12  udo apt autoremove
+   13  sudo apt autoremove
+   14  echo "Descargar 'SourceCodePro (Sauce Code Pro Nerd Fonts)' de https://www.nerdfonts.com/font-downloads"
+   15  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip -P ~/Downloads
+   16  echo "Descargar 'Hack Nerd Font' de https://www.nerdfonts.com/font-downloads"
+   17  wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip -P ~/Downloads
+   18  echo "Descomprimiendo las fuentes en el folder ~/.fonts"
+   19  unzip ~/Downloads/SourceCodePro.zip -d ~/.fonts
+   20  unzip ~/Downloads/Hack.zip -d ~/.fonts
+   21  ll ~/.fonts/
+   22  ll ~/.fonts/*.Windows*
+   23  ll ~/.fonts/*Windows*
+   24  rm ~/.fonts/*Windows*
+   25  ll ~/.fonts/
+   26  rm ~/.fonts/*
+   27  ll ~/.fonts/
+   28  unzip ~/Downloads/SourceCodePro.zip -d ~/.fonts/SourceCodePro/
+   29  unzip ~/Downloads/Hack.zip -d ~/.fonts/Hack/
+   30  echo "Actualizando fuentes"
+   31  fc-cache -fv
+   32  fc-cache -l
+   33  fc-cache list
+   34  echo "Instalando fuentes... Done!"
+   35  echo "Instalando 'lsd' de https://github.com/Peltoche/lsd/releases/download/0.22.0/lsd_0.22.0_amd64.deb"
+   36  wget https://github.com/Peltoche/lsd/releases/download/0.22.0/lsd_0.22.0_amd64.deb -P ~/Downloads/
+   37  sudo dpkg -i ~/Downloads/lsd_0.22.0_amd64.deb 
+   38  echo "Instalando 'lsd'... Done!"
+   39  lsd -la
+   40  echo "Personalizando la terminal con los colores, la fuente y lsd (proceso manual)"
+   41  git clone https://github.com/rivascf/tsrvm-dotfiles.git ~/Downloads
+   42  echo "Instalando git"
+   43  sudo apt install git
+   44  echo "Instalando git... Done!"
+   45  echo "Configurando git"
+   46  git config --global -e
+   47  echo "Configurando git... Done!"
+   48  git clone https://github.com/rivascf/tsrvm-dotfiles.git ~/Downloads
+   49  ll ~/Downloads/
+   50  git clone https://github.com/rivascf/tsrvm-dotfiles.git ~/Downloads/tsrvm-dotfiles
+   51  cp ~/Downloads/tsrvm-dotfiles/config/lsd/ ~/.config/
+   52  cp -r ~/Downloads/tsrvm-dotfiles/config/lsd/ ~/.config/
+   53  lsd -la ~/.config/lsd/
+   54  nano .bashrc
+   55  source .bashrc
+   56  ll
+   57  echo "Personalizando la terminal con los colores, la fuente y lsd (proceso manual)... Done!"
+   58  echo "Instalando prerequisitos: Nerdfonts, lsd, git... Done!"
+   59  echo "Instalando pyenv"
+   60  echo "Instalando pyenv, source 'https://k0nze.dev/posts/install-pyenv-venv-vscode/'"
+   61  sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+   62  git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+   63  echo "Configurando pyenv en .bashrc"
+   64  nano .bashrc
+   65  source .bashrc 
+   66  echo "Probando pyenv e instalando otras versiones de Python"
+   67  python -V
+   68  python3 -V
+   69  pyenv install -l
+   70  pyenv versions
+   71  pyenv install 3.10.6
+   72  pyenv install 3.9.13
+   73  pyenv versions
+   74  mkdir -p ~/Projects/Python/testpy
+   75  cd ~/Projects/Python/testpy
+   76  pyenv local 3.10.6
+   77  python -V
+   78  python -m venv .venv
+   79  pyenv versions
+   80  cd
+   81  pyenv versions
+   82  cd ~/Projects/Python/testpy
+   83  pyenv versions
+   84  ll
+   85  rm .python-version 
+   86  pyenv versions
+   87  source .venv/bin/activate
+   88  python -V
+   89  pip -V
+   90  deactivate 
+   91  pip -V
+   92  cd
+   93  echo "Probando pyenv e instalando otras versiones de Python... OK!"
+   94  echo "Instalando pyenv... Done!"
+   95  echo "Instalando neovim, source: 'https://github.com/neovim/neovim/wiki/Installing-Neovim', buscar 'Ubuntu'"
+   96  echo "Método de instalación: apt-get con 'Personal Package Archive' (PPA), para instalar la última versión estable. Si se usa apt install neovim instala la version 4.3"
+   97  sudo apt-get install software-properties-common
+   98  sudo apt-get install python-software-properties
+   99  sudo add-apt-repository ppa:neovim-ppa/stable
+  100  sudo apt-get update
+  101  sudo apt-get install neovim
+  102  sudo apt-get install python-dev python-pip python3-dev python3-pip
+  103  sudo apt-get install python-dev python3-dev python3-pip
+  104  echo "Testing installation"
+  105  nvim
+  106  nvim
+  107  echo "Updating pynvim"
+  108  pip3 upgrade pynvim
+  109  pip3 install --upgrade pynvim
+  110  nvim
+  111  echo "Updating pynvim... Done!"
+  112  echo "Testing installation... OK!"
+  113  echo "Instalando neovim... Done!"
+  114  echo "Actualizando bash_aliases"
+  115  ll
+  116  nvim .bash_aliases 
+  117  source ~/.bashrc
+  118  vim .bash_aliases 
+  119  source ~/.bashrc
+  120  reset-term 
+  121  echo "Actualizando bash_aliases... Done!"
+  122  history
+  123  lt ~/.config/utilities/
+  124  lt ~/.config/
+  125  mkdir ~/.config/utilities/
+  126  cp ~/Downloads/tsrvm-dotfiles/config/venv_prompt.sh ~/.config/utilities/
+  127  lt ~/.config/
+  128  echo "Copying necessary scripts to corresponding config folders"
+  129  cp -r ~/Downloads/tsrvm-dotfiles/config/gitbash/ ~/.config/
+  130  cp -r ~/Downloads/tsrvm-dotfiles/config/rosmgmt/ ~/.config/
+  131  lt ~/.config/
+  132  echo "Copying necessary scripts to corresponding config folders... All files copied, OK!"
+  133  echo "Adding necessary lines to bashrc"
+  134  vim .bashrc
+  135  reset-term 
+  136  echo "Testing new prompt"
+  137  ll
+  138  cd Projects/Python/testpy/
+  139  source .venv/bin/activate
+  140  deactivate
+  141  cd ~/Downloads/tsrvm-dotfiles/
+  142  cd
+  143  echo "Testing new prompt... 2 of 3 test, passed! Pending ROS Enviroment tests."
+  144  cd ~/Downloads/
+  145  g clone https://github.com/rivascf/tsrvm-v2-dotfiles.git
+  146  cp ./tsrvm-v2-dotfiles/Wallpapers/* ~/Pictures/
+  147  echo "Customize desktop... OK"
+  148  pip3 search jupyter-ros
+  149  pip3 install pip --upgarde
+  150  pip3 install pip --upgrade
+  151  cd
+  152  ll
+  153  vim .profile 
+  154  echo $PATH
+  155  vim .profile 
+  156  nano .profile 
+  157  vim .bashrc 
+  158  reset-term 
+  159  echo $PATH
+  160  pip3 -V
+  161  pip3 install pip --upgrade
+  162  echo "PIP3 PATH warning, solved!"
+  163  pip3 search jupyter
+  164  pyenv global 3.10.6
+  165  pyenv versions
+  166  pip -V
+  167  pip install pip --upgrade
+  168  pip'search jupyter
+  169  pip search jupyter
+  170  pyenv global system
+  171  pyenv versions
+  172  echo "Installing ROS Noetic from 'http://wiki.ros.org/noetic/Installation/Ubuntu'."
+  173  sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+  174  curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+  175  cat .bash_aliases 
+  176  update-all 
+  177  update-upgrade 
+  178  sudo apt install ros-noetic-desktop-full
+  179  source /opt/ros/noetic/setup.bash
+  180  sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+  181  sudo apt install python3-rosdep
+  182  sudo rosdep init
+  183  rosdep update
+  184  apt search python3-osrf
+  185  apt search python3 | grep osrf
+  186  sudo python3-osrf-pycommon
+  187  sudo spt install python3-osrf-pycommon
+  188  sudo apt install python3-osrf-pycommon
+  189  apt search python3 | grep catkin
+  190  sudo apt install python3-catkin-tools
+  191  echo "Creando ROS1 workspaces"
+  192  mkdir -p ~/ROSDev/robot_ws/src
+  193  mkdir -p ~/ROSDev/simulation_ws/src
+  194  mkdir -p ~/ROSDev/catkin_ws/src
+  195  lt ~/ROSDev/
+  196  cd ~/ROSDev/robot_ws/
+  197  catkin init
+  198  catkin build 
+  199  lt ~/ROSDev/robot_ws/
+  200  ls ~/ROSDev/robot_ws/devel/setup.bash 
+  201  echo $ROS_PACKAGE_PATH
+  202  source ~/ROSDev/robot_ws/devel/setup.bash 
+  203  echo $ROS_PACKAGE_PATH
+  204  echo "Creando ROS1 workspaces... Done (1 of 3)!"
+  205  echo "Installing ROS Noetic... Done!"
+  206  reset-term 
+  207  echo $ROS_PACKAGE_PATH
+  208  echo "Installing ROS2 Galactic from 'https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html'."
+  209  echo "locale  # check for en_US.UTF-8"
+  210  locale
+  211  echo "locale  # check for en_US.UTF-8... Done!"
+  212  echo "Setup Sources"
+  213  apt-cache policy | grep universe
+  214  sudo apt install software-properties-common
+  215  sudo add-apt-repository universe
+  216  sudo apt update && sudo apt install curl gnupg lsb-release
+  217  sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+  218  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(source /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+  219  echo "Setup Sources... Done!"
+  220  echo "Install ROS 2 packages"
+  221  sudo apt update
+  222  sudo apt upgrade
+  223  sudo apt install ros-galactic-desktop
+  224  echo "Install ROS 2 packages... Done!"
+  225  echo "Environment setup."
+  226  source /opt/ros/galactic/setup.bash
+  227  printenv | grep -i ROS
+  228  printenv | grep -i ROS_
+  229  export ROS_DOMAIN_ID=0
+  230  printenv | grep -i ROS_
+  231  echo "Environment setup... Done!"
+  232  echo "Installing colcon."
+  233  sudo apt install python3-colcon-common-extensions
+  234  echo "Installing colcon... Done!"
+  235  apt search ~nros-galactic | rqt
+  236  apt search ros-galactic | grep rqt
+  237  echo "Installing rqt if not exist."
+  238  sudo apt install ~nros-galactic-rqt*
+  239  rqt
+  240  echo "Installing rqt if not exist... Done!"
+  241  echo "Install ROS 2 packages... Done!"
+  242  echo "Installing ROS2 Galactic... Done!"
+  243  echo "Installing Turtlebot3 for ROS Noetic."
+  244  source /opt/ros/noetic/setup.bash 
+  245  cd ~/ROSDev/robot_ws/src/
+  246  git clone -b noetic-devel https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+  247  git clone -b noetic-devel https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+  248  git clone -b noetic-devel https://github.com/ROBOTIS-GIT/turtlebot3.git
+  249  cd ..
+  250  catkin build 
+  251  echo $RO_PACKAGE_PATH
+  252  echo $ROS_PACKAGE_PATH
+  253  source ~/ROSDev/robot_ws/devel/setup.bash
+  254  echo $ROS_PACKAGE_PATH
+  255  cd ..
+  256  cd simulation_ws/src/
+  257  git clone -b noetic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+  258  cd ..
+  259  ll
+  260  rm -rf src/
+  261  mkdir src
+  262  catkin init 
+  263  catkin build 
+  264  cd src/
+  265  git clone -b noetic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+  266  cd ..
+  267  catkin build 
+  268  echo "Creando ROS1 workspaces... Done (2 of 3)!"
+  269  echo $ROS_PACKAGE_PATH
+  270  source ~/ROSDev/simulation_ws/devel/setup.bash 
+  271  echo $ROS_PACKAGE_PATH
+  272  echo "Testing turtlebot3 packages."
+  273  export TURTLEBOT3_MODEL=burger
+  274  roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch 
+  275  export TURTLEBOT3_MODEL=waffle
+  276  roslaunch turtlebot3_fake turtlebot3_fake.launch
+  277  echo "Testing turtlebot3 packages... Done!"
+  278  source /opt/ros/galactic/setup.bash 
+  279  source ~/ROS2Dev/turtlebot3_ws/install/setup.bash 
+  280  export ROS_DOMAIN_ID=30
+  281  export TURTLEBOT3_MODEL=burger
+  282  ros2 launch turtlebot3_fake_node 
+  283  ros2 launch turtlebot3_fake_node turtlebot3_fake_node.launch.py 
+  284  echo "Installing turtlebot3 for ROS2 Galactic."
+  285  source /opt/ros/galactic/setup.bash 
+  286  echo "Creating turtlebot3_ws."
+  287  mkdir -p ~/ROS2Dev/turtlebot3_ws/src
+  288  cd ~/ROS2Dev/turtlebot3_ws/src
+  289  git clone -b foxy-devel https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+  290  rm -rf DynamixelSDK/
+  291  ll
+  292  git clone -b galactic-devel https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+  293  git clone -b galactic-devel https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+  294  git clone -b galactic-devel https://github.com/ROBOTIS-GIT/turtlebot3.git
+  295  cd ..
+  296  colcon build --symlink-install
+  297  source ~/ROS2Dev/turtlebot3_ws/install/setup.bash 
+  298  echo "Creating turtlebot3_ws... Done!"
+  299  echo "Installing ROS2 Gazebo packages."
+  300  apt search ros-galactic | grep gazebo
+  301  sudo apt install ros-galactic-gazebo-ros-pkgs
+  302  echo "Installing ROS2 Gazebo packages... Done!"
+  303  echo "Adding turtlebot3 simulation to turtlebot3_wss."
+  304  cd src/
+  305  git clone -b galactic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+  306  cd ..
+  307  colcon build --symlink-install
+  308  source ~/ROS2Dev/turtlebot3_ws/install/setup.bash 
+  309  echo "Adding turtlebot3 simulation to turtlebot3_ws... Done!"
+  310  echo "Testing turtlebot3."
+  311  echo "set ROS_DOMAIN_ID=30 #DOMAIN_ID used by TURTLEBOT3."
+  312  export ROS_DOMAIN_ID=30 #TURTLEBOT3
+  313  printenv |  grep ROS_
+  314  export TURTLEBOT3_MODEL=burger
+  315  ros2 launch turtlebot3_gazebo empty_world.launch.py 
+  316  ros2 launch turtlebot3_gazebo spawn_turtlebot3.launch.py 
+  317  ros2 launch turtlebot3_gazebo empty_world.launch.py 
+  318  ros2 launch turtlebot3_fake_node turtlebot3_fake_node.launch.py
+  319  echo "Testing turtlebot3 on ROS2... Done!"
+  320  echo "Adding final configurations to bashrc, bash_aliases and rosmgmt folder."
+  321  cd
+  322  vim ~/.bashrc 
+  323  echo "bashrc... OK!"
+  324  vim ~/.bashrc_aliases
+  325  vim ~/.bash_aliases
+  326  echo "bash_aliases... OK!"
+  327  lt ~/.config/rosmgmt/
+  328  vim ~/.config/rosmgmt/ros_noetic_conf.bash 
+  329  echo "~/.config/rosmgmt/ros_noetic_conf.bash... OK!"
+  330  vim ~/.config/rosmgmt/ros2_galactic_conf.bash 
+  331  echo "~/.config/rosmgmt/ros2_galactic_conf.bash... OK!"
+  332  echo "Restarting terminal and final tests."
+  333  lt -h
+  334  lsd -h
+  335  lsd --help
+  336  ll ~/ROSDev/
+  337  ll ~/ROS2Dev/
+  338  rosact ros1
+  339  rosenv
+  340  rospath
+  341  echo $TURTLEBOT_MODEL
+  342  echo $TURTLEBOT3_MODEL
+  343  exit
+  344  vim ~/.config/rosmgmt/ros2_galactic_conf.bash 
+  345  vim ~/.config/rosmgmt/ros_noetic_conf.bash 
+  346  rosact ros2
+  347  rosenv
+  348  rospath
+  349  __ros_print_env_vars
+  350  __ros_network
+  351  echo "All tests completed!"
+  352  vim ~/.config/rosmgmt/ros2_galactic_conf.bash 
+  353  vim ~/.config/rosmgmt/ros_mgmt.sh 
+  354  reset-term 
+  355  rosenv
+  356  cat ~/.config/rosmgmt/ros2_galactic_conf.bash 
+  357  rosenv
+  358  rosact ros2
+  359  rosenv
+  360  __ros_network
+  361  history | tail -15
+  362  cd ROSDev/
+  363  tree -d -t -f
+  364  lt -d -t -f
+  365  lt --directory-only
+  366  lt --directory-only --depth 1
+  367  lt --depth 1
+  368  lsd --depth 1
+  369  lsd -l --depth 1
+  370  find . -type d -exec ls -dlrt {} \;
+  371  find . -type d -exec ls -dlrt {} \; | wc --lines
+  372  find . -maxdepth 1 -type d -exec ls -dlrt {} \;
+  373  find . -maxdepth 1 -type d -exec ls -dlrt {} \; | wc --lines
+  374  ls -R
+  375  rosact ros1
+  376  echo "CMAKE_PREFIX_PATH = $CMAKE_PREFIX_PATH"
+  377  echo "(.+?:), (.[^:]*)"
+  378  echo "(.+?:), regex (.[^:]*)"
+  379  echo "CMAKE_PREFIX_PATH = $CMAKE_PREFIX_PATH"
+  380  ll ~/.config/
+  381  vim .bash_aliases
+  382  cd
+  383  vim .bash_aliases
+  384  reset-term 
+  385  updta
+  386  updtu
+  387  pip3 install notebook
+  388  pip3 install jupyterlab
+  389  mkdir RoboLab
+  390  vim ~/.bash_aliases
+  391  reset-term 
+  392  fc-list | grep Mono | grep Sauce
+  393  jpl
+  394  ll ~/Downloads/
+  395  history >> ~/Downloads/tsrvm-v2-dotfiles/history_bk_080822 
