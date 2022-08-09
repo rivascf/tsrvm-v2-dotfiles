@@ -56,9 +56,8 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-
 ##################################################################
-## Adding configurations and code to replace default prompt     ## 
+## Adding configurations and code to replace default prompt     ##
 ## with My Awsome Prompt.                                       ##
 ##################################################################
 
@@ -73,7 +72,7 @@ if [ -f ~/.config/gitbash/git-prompt.sh ]; then
 	export GIT_PS1_SHOWSTASHSTATE=true
 	export GIT_PS1_SHOWUNTRACKEDFILES=true
 	# ?? export GIT_PS1_SHOWUPSTREAM="auto"
-	export GIT_PS1_DESCRIBE_STYLE='branch'		# ??
+	# export GIT_PS1_DESCRIBE_STYLE='branch'		# ??
 	# ?? export GIT_PS1_SHOWCOLORHINTS=true
 	. ~/.config/gitbash/git-prompt.sh
 else
@@ -92,8 +91,9 @@ else
 	enchulame_el_ps1=no
 fi
 
+
 if [ "$color_prompt" = yes ]; then
-	## Test to use enhanced prompt
+## Test to use enhanced prompt
 	if [ enchulame_el_ps1 = no ]; then
 		# Use default color prompt
 		PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
@@ -105,7 +105,10 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
+
+# clean auxiliary variable
 unset enchulame_el_ps1
+
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -170,6 +173,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+# To solve PIP, PIP3
+#     WARNING: The scripts pip, pip3 and pip3.8 are installed in '/home/tsruser/.local/bin' which is not on PATH.
+#     Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+#     set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 ##########################
 ## PyEnv configuration  ##
 ##########################
@@ -179,23 +191,4 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 # Disable default venv prompt to show it in  my own theme.
 export VIRTUAL_ENV_DISABLE_PROMPT=true
-
-##############################
-## Anaconda3 configuration  ##
-##############################
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/tsruser/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/tsruser/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/tsruser/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/tsruser/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
