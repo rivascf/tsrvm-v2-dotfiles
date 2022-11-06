@@ -72,7 +72,7 @@ __ros_network ()
 
 __ros_print_env_vars ()
 {
-	env | egrep "ROS_.*=|PYTHONPATH|LD_LIBRARY"
+	env | egrep "ROS_.*=|PYTHONPATH|LD_LIBRARY|AMENT_PREFIX_PATH"
 }
 
 # __ros_split_path. Helper function to split ROS_PACKAGE_PATH environment variable into array
