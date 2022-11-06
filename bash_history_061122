@@ -1,0 +1,529 @@
+    1  ll
+    2  vim ~/bashrc
+    3  vim ~/.bashrc
+    4  ll
+    5  vim ~/.config/alacritty/alacritty.yml 
+    6  exit
+    7  vim ~/.config/alacritty/alacritty.yml 
+    8  nvim
+    9  vim
+   10  echo $TERM
+   11  sudo apt-get update 
+   12  sudo apt update 
+   13  sudo apt upgrade
+   14  sudo apt autoremove
+   15  cd Downloads/
+   16  sudo apt install git curl
+   17  git clone https://github.com/rivascf/tsrvm-dotfiles.git
+   18  cd tsrvm-dotfiles/
+   19  ll
+   20  cd
+   21  echo "Instalando prerequisitos: Nerdfonts, lsd, neovim, git"
+   22  sudo apt-get update
+   23  sudo apt update && sudo apt upgrade -y
+   24  sudo apt install git  python3-pip -y
+   25  sudo apt install neovim -y
+   26  git --version
+   27  nvim --version
+   28  pip3 list
+   29  echo "Instalando Nerd Fonts"
+   30  echo "Descargar 'SourceCodePro (Sauce Code Pro Nerd Fonts)' de https://www.nerdfonts.com/font-downloads"
+   31  echo "Descargar 'Cascadia Code' de https://www.nerdfonts.com/font-downloads"
+   32  echo "Descargar 'Hack Nerd Font' de https://www.nerdfonts.com/font-downloads"
+   33  echo "Descargar 'Roboto Mono Nerd Font' de https://www.nerdfonts.com/font-downloads"
+   34  echo "Descargar 'Ubuntu Mono Nerd Font' de https://www.nerdfonts.com/font-downloads"
+   35  unzip ~/Downloads/SourceCodePro.zip -d ~/.fonts
+   36  unzip ~/Downloads/CascadiaCode.zip -d ~/.fonts
+   37  unzip ~/Downloads/Hack.zip -d ~/.fonts
+   38  unzip ~/Downloads/RobotoMono.zip -d ~/.fonts
+   39  unzip ~/Downloads/UbuntuMono.zip -d ~/.fonts
+   40  ll ~/.fonts/
+   41  cd ~/.fonts/
+   42  ll
+   43  l
+   44  rm *
+   45  ll
+   46  cd
+   47  unzip ~/Downloads/SourceCodePro.zip -d ~/.fonts/SourceCodePro/
+   48  unzip ~/Downloads/CascadiaCode.zip -d ~/.fonts/CascadiaCode/
+   49  unzip ~/Downloads/Hack.zip -d ~/.fonts/Hack/
+   50  unzip ~/Downloads/RobotoMono.zip -d ~/.fonts/RobotoMono/
+   51  unzip ~/Downloads/UbuntuMono.zip -d ~/.fonts/UbuntuMono/
+   52  ll ~/.fonts/
+   53  fc-cache -fv
+   54  echo "Instalando Nerd Fonts... Done!"
+   55  echo "Instalando 'lsd' de https://github.com/Peltoche/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb"
+   56  sudo dpkg -i ~/Downloads/lsd_0.23.1_amd64.deb 
+   57  echo "Instalando 'lsd'... Done!"
+   58  lsa -la
+   59  lsd -la
+   60  echo "Personalizando la terminal con los colores, la fuente y lsd (proceso manual)"
+   61  nvim ~/.bashrc 
+   62  mv ~/Downloads/tsrvm-dotfiles/config/lsd/ ~/.config/
+   63  ll ~/.config/
+   64  source ~/.bashrc 
+   65  ll ~/.config/
+   66  echo "Instalando 'lsd' config completed!"
+   67  echo "Personalizando la terminal con los colores, la fuente y lsd (proceso manual)... Done!"
+   68  echo "Configurando 'git'"
+   69  git config --global -e
+   70  echo "Configurando 'git'... Done!"
+   71  echo "Configurando 'bash aliases'"
+   72  nvim .bash_aliases
+   73  ll
+   74  source ~/.bashrc 
+   75  g --version
+   76  git config --global -e
+   77  echo " 'bash aliases'... Done!"
+   78  echo "Transfiriendo utils and auxiliary  scripts"
+   79  mv ~/Downloads/tsrvm-dotfiles/config/gitbash/ ~/.config/
+   80  mv ~/Downloads/tsrvm-dotfiles/config/rosmgmt/ ~/.config/
+   81  mv ~/Downloads/tsrvm-dotfiles/config/utils/ ~/.config/
+   82  mv ~/Downloads/tsrvm-dotfiles/config/venv_prompt.sh ~/.config/
+   83  ll ~/.config/
+   84  echo "Transfiriendo utils and auxiliary  scripts... Done!"
+   85  echo "Instalando pynvim"
+   86  pip3 install pynvim
+   87  pip3 install --upgrade pynv
+   88  nvim
+   89  echo "Instalando pynvim... done!"
+   90  echo "Instalando Alacritty..."
+   91  echo "Instalando Alacritty... Prerequisitos... "
+   92  g clone ttps://github.com/alacritty/alacritty.git
+   93  g clone https://github.com/alacritty/alacritty.git
+   94  cd alacritty/
+   95  echo "Instalando Alacritty... Prerequisitos... Instalando RUST compiler (rustup)"
+   96  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   97  source "$HOME/.cargo/env"
+   98  rustup override set stable
+   99  rustup update stable
+  100  echo "Instalando Alacritty... Prerequisitos... Instalando RUST compiler (rustup)... Done!"
+  101  echo "Instalando Alacritty... Prerequisitos... Dependences..."
+  102  sudo apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+  103  echo "Instalando Alacritty... Prerequisitos... Dependences... Done!"
+  104  echo "Instalando Alacritty... Building..."
+  105  cargo build --release
+  106  echo "Instalando Alacritty... Building... Done!"
+  107  echo "Instalando Alacritty... Post build..."
+  108  infocmp alacritty
+  109  sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+  110  infocmp alacritty
+  111  echo "Instalando Alacritty... Post build... Done!"
+  112  echo "Instalando Alacritty... Desktop Entry..."
+  113  sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
+  114  sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+  115  sudo desktop-file-install extra/linux/Alacritty.desktop
+  116  sudo update-desktop-database
+  117  echo "Instalando Alacritty... Desktop Entry... Done!"
+  118  echo "Instalando Alacritty... Manual entry..."
+  119  sudo mkdir -p /usr/local/share/man/man1
+  120  gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
+  121  gzip -c extra/alacritty-msg.man | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null
+  122  echo "Instalando Alacritty... Manual entry... Done!"
+  123  echo "Instalando Alacritty... Shell completions..."
+  124  ll
+  125  cd ..
+  126  ll
+  127  mkdir -p ~/.bash_completion
+  128  ll
+  129  cd alacritty/
+  130  cp extra/completions/alacritty.bash ~/.bash_completion/alacritty
+  131  echo "source ~/.bash_completion/alacritty" >> ~/.bashrc
+  132  echo "Instalando Alacritty... Shell completions... Done!"
+  133  echo "Instalando Alacritty... Verifying installation..."
+  134  vim ~/.bashrc 
+  135  echo "Instalando Alacritty... Verifying installation... Done!"
+  136  echo "Instalando Alacritty... Done!"
+  137  echo "Configuring  Alacritty..."
+  138  cd ..
+  139  mkdir ~/.config/alacritty
+  140  ll ~/.config/
+  141  vim ~/.config/alacritty/alacritty.yml
+  142  echo "Configuring  Alacritty... Testing"
+  143  echo "Configuring  Alacritty... Testing... Done!"
+  144  echo "Configuring  Alacritty... Done!"
+  145  echo "Instalando pyenv"
+  146  echo "Instalando pyenv, from blog post 'https://k0nze.dev/posts/install-pyenv-venv-vscode/'"
+  147  echo "Instalando pyenv... Prerequisites... "
+  148  sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+  149  apt search openssl
+  150  apt search openssl | grep python
+  151  sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git
+  152  git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+  153  ll
+  154  echo "Configurando pyenv en .bashrc"
+  155  vim ~/.bashrc
+  156  source ~/.bashrc 
+  157  echo "Probando pyenv e instalando otras versiones de Python"
+  158  python -V
+  159  python3 -V
+  160  pyenv install -l
+  161  pyenv versions
+  162  pyenv install 3.11.0
+  163  pyenv install 2.7.18
+  164  pyenv versions
+  165  mkdir -p ~/Projects/Python/testpy
+  166  cd Projects/Python/testpy/
+  167  pyenv local 3.11.0
+  168  python -V
+  169  python -m venv .venv
+  170  pyenv versions
+  171  ll
+  172  rm .python-version 
+  173  python -V
+  174  python3 -V
+  175  source .venv/bin/activate
+  176  python -V
+  177  pip -V
+  178  deactivate
+  179  python -V
+  180  echo "Probando pyenv e instalando otras versiones de Python... OK!"
+  181  cd
+  182  python -V
+  183  echo "Instalando pyenv... Done!"
+  184  nvim
+  185  history 
+  186  history >> bash_history_041122
+  187  ll
+  188  sudo apt remove neovim
+  189  nvim
+  190  vim
+  191  echo "Removing neovim... Done!"
+  192  echo "Instalando neovim, source: 'https://github.com/neovim/neovim/wiki/Installing-Neovim', buscar 'Ubuntu'"
+  193  echo "Instalando Nvim v0.8.0 (latest)..."
+  194  echo "Instalando Nvim v0.8.0 (latest)... Download nvim-linux64.deb... Done!"
+  195  sudo apt install ~/Downloads/nvim-linux64.deb 
+  196  cd Downloads/
+  197  sudo apt install ./nvim-linux64.deb
+  198  cd
+  199  echo "Instalando Nvim v0.8.0 (latest)... Fail"
+  200  echo "Método de instalación: apt-get con 'Personal Package Archive' (PPA), para instalar la última versión estable. Si se usa apt install neovim instala la version 6.0"
+  201  sudo apt-get install software-properties-common
+  202  sudo apt autoremove
+  203  sudo apt-get install python-software-properties
+  204  sudo apt-get install python3-software-properties
+  205  sudo add-apt-repository ppa:neovim-ppa/stable
+  206  sudo apt-get update
+  207  sudo apt-get install neovim
+  208  nvim
+  209  echo "Instalando Nvim v0.7.2 ... Done!"
+  210  sudo apt-get install python-dev python-pip python3-dev python3-pip
+  211  echo "Updating pynvim"
+  212  pip3 install --upgrade pynvim
+  213  echo "Testing installation... OK!"
+  214  echo "Change default prompt to My Awesome Prompt!"
+  215  echo "Adding necessary lines to bashrc"
+  216  vim ~/bashrc
+  217  vim ~/.bashrc
+  218  source ~/.bashrc
+  219  vim ~/.bashrc
+  220  source ~/.bashrc
+  221  vim ~/.config/rosmgmt/ros_mgmt.sh 
+  222  mkdir -p ~/.config/utilities
+  223  vim ~/.config/utilities/venv_prompt.sh
+  224  source  ~/.bashrc 
+  225  cd Projects/Python/testpy/
+  226  source .venv/bin/activate
+  227  git init
+  228  gst
+  229  ll
+  230  deactivate
+  231  ll ~/.config/
+  232  ll ~/.config/gitbash/
+  233  ll ~/.config/rosmgmt/
+  234  ll ~/.config/utilities/
+  235  source ~/.bashrc 
+  236  vim ~/.bashrc
+  237  source ~/.bashrc
+  238  ll
+  239  echo "Change default prompt to My Awesome Prompt... Done!"
+  240  echo "Backup history"
+  241  history > bash_history_041122
+  242  ll
+  243  tail bash_history_041122 -n10
+  244  echo "Backup history... Done!"
+  245  echo "Installing ROS2 Humble"
+  246  echo "Installing ROS2 Humble... Guide from 'https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html'"
+  247  echo "check locale"
+  248  locale
+  249  echo "check locale... 'LANG=en_US.UTF-8'...Ok!"
+  250  echo "Setup sources"
+  251  apt-cache policy | grep universe
+  252  sudo apt install software-properties-common
+  253  sudo add-apt-repository universe
+  254  sudo apt update && sudo apt install curl gnupg lsb-release
+  255  sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+  256  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(source /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+  257  echo "Setup sources... done!"
+  258  echo "Install ROS 2 packages"
+  259  sudo apt update
+  260  sudo apt upgrade
+  261  sudo apt install ros-humble-desktop -y
+  262  echo "Install ROS 2 packages... Testing..."
+  263  source /opt/ros/humble/setup.bash
+  264  ll ~/.config/rosmgmt/
+  265  cp ~/.config/rosmgmt/ros2_galactic_conf.bash ~/.config/rosmgmt/ros2_humble_conf.bash 
+  266  ll ~/.config/rosmgmt/
+  267  vim ~/.config/rosmgmt/ros2_humble_conf.bash 
+  268  vim ~/.bashrc 
+  269  ros2 run demo_nodes_py listener
+  270  vim ~/.config/rosmgmt/ros_mgmt.sh 
+  271  env | egrep "ROS_.*=|PYTHONPATH|LD_LIBRARY"
+  272  cd ROS2Dev/ros2_ws/
+  273  . install/setup.bash 
+  274  ros2 run examples_rclcpp_minimal_publisher publisher_member_function
+  275  ll
+  276  vim ~/.config/alacritty/alacritty.yml 
+  277  lt ~/ROS2Dev/
+  278  lt ~/ROS2Dev/ros2_ws/src/
+  279  ros2 run demo_nodes_cpp talker
+  280  echo "Install ROS 2 packages... Testing... Done!"
+  281  echo "Install ROS 2 packages... Configure... Done!"
+  282  echo "Install ROS 2 packages... Configure Enviroment, colcon, etc..."
+  283  printenv | grep -i ROS
+  284  env | egrep "ROS_.*=|PYTHONPATH|LD_LIBRARY"
+  285  echo "Install ROS 2 packages... Installing colcon..."
+  286  sudo apt install python3-colcon-common-extensions
+  287  echo "Install ROS 2 packages... Installing colcon... Done!"
+  288  echo "Install ROS 2 packages... Creating ROS2 workspace"
+  289  mkdir -p ~/ROS2Dev/ros2_ws/src
+  290  lt ~/ROS2Dev/
+  291  cd ~/ROS2Dev/ros2_ws/src
+  292  git clone https://github.com/ros2/examples src/examples -b humble
+  293  cd ..
+  294  colcon build --symlink-install
+  295  colcon test
+  296  . install/setup.bash 
+  297  ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
+  298  echo "Install ROS 2 packages... Creating ROS2 workspace... Done!"
+  299  echo "Install ROS 2 packages... Testing ROS2 workspace examples... Done!"
+  300  echo "Installing ROS2 Humble... All tests... Done!"
+  301  echo "Backup history, again"
+  302  history > bash_history_041122
+  303  tail bash_history_041122 -n10
+  304  echo "Backup history, again... Done!"
+  305  echo "ROS 2 post installation..."
+  306  vim ~/.config/rosmgmt/ros2_humble_conf.bash 
+  307  echo "ROS 2 post installation... Done!"
+  308  source ~/.bashrc 
+  309  . install/setup.bash 
+  310  cd
+  311  ros2 
+  312  ros2 pkg list
+  313  colcon_cd example_interfaces
+  314  cd
+  315  ros2
+  316  ros2 node 
+  317  ros2 node list
+  318  echo "Backup history, again"
+  319  history > bash_history_041122
+  320  tail bash_history_041122 -n10
+  321  echo "Backup history, again... Done!"
+  322  fc-cache list
+  323  fc-cache -l
+  324  fc-list
+  325  fc-list | grep -i Souce
+  326  fc-list | grep -i Sauce
+  327  echo "Backup history, again"
+  328  history > bash_history_041122
+  329  tail bash_history_041122 -n10
+  330  echo "Backup history, again... Done!"
+  331  vim ~/.config/rosmgmt/ros2_humble_conf.bash 
+  332  source ~/.bashrc 
+  333  rosenv
+  334  rosnet 
+  335  vim ~/.config/rosmgmt/ros2_humble_conf.bash 
+  336  printenv | grep -i ROS
+  337  vim ~/.config/rosmgmt/ros_mgmt.sh 
+  338  source ~/.bashrc 
+  339  rosenv
+  340  fc-list | grep Mono | grep Sauce
+  341  gazebo
+  342  apt search ros-galactic | grep -i gazebo
+  343  apt search ros-galactic | grep gazebo
+  344  apt search ros-galactic 
+  345  apt search ros 
+  346  apt -h
+  347  apt search ros2
+  348  apt search ros-humble
+  349  apt search ros-humble | grep -i gazebo
+  350  pip3 -V
+  351  pip3
+  352  pip3 search notebook
+  353  echo "ROS 2 post installation... Done"
+  354  echo "Install ROS2 Gazebo packages"
+  355  apt search ros-humble | grep -i gazebo
+  356  sudo apt install ros-humble-gazebo-ros-pkgs
+  357  gazebo 
+  358  ros2 pkg list | more
+  359  source ~/ROS2Dev/ros2_ws/install/setup.bash 
+  360  ros2 pkg list | more
+  361  ll
+  362  rosenv
+  363  vim ~/.bash_aliases 
+  364  vim ~/.config/rosmgmt/ros2_humble_conf.bash 
+  365  ll
+  366  rosenv
+  367  ll
+  368  rosenv
+  369  pyenv shell 3.11.0
+  370  ll
+  371  echo  "$HOME/.local/bin"
+  372  fc-list | grep Mono | grep Sauce
+  373  fc-list | grep Mono | grep Roboto
+  374  fc-list | grep Mono | grep Hack
+  375  fc-list | grep Mono | grep Ubuntu
+  376  echo "Install ROS2 Gazebo packages... Done!"
+  377  echo "Install Jupyter Notebook and Jupyter Lab"
+  378  pip3 install jupyterlab
+  379  pip3 install notebook
+  380  echo "Install Jupyter Notebook and Jupyter Lab... Adding aliases and configs to bashrc and bash_aliases"
+  381  source ~/.bash_aliases 
+  382  vim ~/.bash_aliases 
+  383  vim ~/.bashrc
+  384  echo $PATH
+  385  source ~/.bashrc
+  386  echo $PATH
+  387  vim ~/.bash_aliases 
+  388  jlb
+  389  jnb
+  390  echo "Install Jupyter Notebook and Jupyter Lab... Adding aliases and configs to bashrc and bash_aliases... Done!"
+  391  echo "Install Jupyter Notebook and Jupyter Lab... Additional configs..."
+  392  echo "Install Jupyter Notebook and Jupyter Lab... Additional configs... None... Done!"
+  393  echo "Install VSCode"
+  394  sudo dpkg -i ~/Downloads/code_1.73.0-1667318785_amd64.deb 
+  395  echo "Install VSCode... Adding plugins and configs"
+  396  code .
+  397  cxd ROS2Dev/
+  398  code .
+  399  cd ROS2Dev/
+  400  code .
+  401  fc-list | grep Mono | grep Sauce
+  402  echo "Install VSCode... Adding plugins and configs... Done!"
+  403  cd 
+  404  echo "Backup history, again"
+  405  history > bash_history_041122-2
+  406  tail bash_history_041122-2 -n10
+  407  echo "Backup history, again... Done!"
+  408  cd ROS2Dev/
+  409  lt
+  410  ll
+  411  code .
+  412  cd ros2_ws/src
+  413  ll
+  414  code .
+  415  echo "Deleting innecesary files"
+  416  echo "Deleting unnecessary files... (sorry)"
+  417  ll ~/Downloads/
+  418  rm ~/Downloads/*
+  419  ll ~/Downloads/
+  420  rm -rf ~/alacritty/
+  421  ll
+  422  rm -rf .vscode/
+  423  llo /usr/share/gazebo-11/worlds/
+  424  ll /usr/share/gazebo-11/worlds/
+  425  gazebo /usr/share/gazebo-11/worlds/fiducial.world 
+  426  gazebo /usr/share/gazebo-11/worlds/seesaw.world 
+  427  export SVGA_VGPU10=0
+  428  gazebo /usr/share/gazebo-11/worlds/seesaw.world 
+  429  gazebo /usr/share/gazebo-11/worlds/fiducial.world 
+  430  gazebo /usr/share/gazebo-11/worlds/pr2.world 
+  431  echo "Deleting unnecessary files... (1) Done!"
+  432  echo "Adding 'export SVGA_VGPU10=0' to bashrc to correct 'context mismatch in svga_surface_destroy' error when Gazebo-11 render an object/world"
+  433  vim ~/.bashrc 
+  434  echo vmwgfx | sudo tee -a /etc/modules
+  435  find /lib/modules -name vmwgfx.ko -exec ls -l '{}' \;
+  436  sudo modprobe vmwgfx
+  437  dmesg
+  438  export LIBGL_DEBUG=verbose
+  439  gazebo /usr/share/gazebo-11/worlds/pr2.world 
+  440  glxinfo
+  441  ros2 node list
+  442  ros2 topic list
+  443  ros2 topic
+  444  ros2 topic info /odom 
+  445  ros2
+  446  ros2 topic type /odom 
+  447  ros2 run turtlebot3_teleop teleop_keyboard 
+  448  cd ROS2Dev/
+  449  ll
+  450  cat .editorconfig 
+  451  echo "Deleting unnecessary files... (2) ros2_ws"
+  452  rm -rf ros2_ws/
+  453  ll
+  454  echo "Deleting unnecessary files... (2) Done!"
+  455  echo "Instalando Turtlebot3 packages..."
+  456  cd 
+  457  mkdir -p ~/ROS2Dev/turtlebot3_ws/src
+  458  cd ~/ROS2Dev/turtlebot3_ws/src
+  459  git clone -b humble-devel https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+  460  git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+  461  git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3.git
+  462  cd ..
+  463  ll src/
+  464  colcon build --symlink-install
+  465  python3 -m pip install --user -e .
+  466  colcon build --symlink-install
+  467  python3
+  468  pip3 install setuptools==58.2.0
+  469  python3
+  470  colcon build --symlink-install
+  471  vim ~/.config/rosmgmt/ros2_humble_conf.bash 
+  472  source ~/.bashrc
+  473  rosenv
+  474  cd src/
+  475  git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+  476  cd ..
+  477  ll src/
+  478  colcon build --symlink-install
+  479  colcon build --symlink-install -Wno-dev
+  480  colcon build --symlink-install
+  481  source ~/.bashrc
+  482  ros2 launch turtlebot3_fake_node rviz2.launch.py 
+  483  ros2 launch turtlebot3_fake_node turtlebot3_fake_node.launch.py 
+  484  vim ~/.config/rosmgmt/ros2_humble_conf.bash 
+  485  source ~/.bashrc
+  486  ros2 launch turtlebot3_fake_node turtlebot3_fake_node.launch.py 
+  487  history
+  488  echo "Instalando Turtlebot3 packages... Testing... Done!"
+  489  echo "Instalando Turtlebot3 packages... Done!"
+  490  echo "Backup history, again"
+  491  history > bash_history_041122-2
+  492  echo "Backup history, again... Done!"
+  493  tail bash_history_041122-2 -n10
+  494  cd 
+  495  cd ~/ROS2Dev/turtlebot3_ws/src
+  496  ll
+  497  cd ..
+  498  ll
+  499  mv bash_history_041122-2 bash_history_041122-3
+  500  ll
+  501  mv bash_history_041122-3 ~/
+  502  cd
+  503  ll
+  504  ros2 launch turtlebot3_gazebo empty_world.launch.py
+  505  ros2 launch turtlebot3_fake_node turtlebot3_fake_node.launch.py 
+  506  gazebo -s libgazebo_ros_init.so -s libgazebo_ros_factory.so myworld.world
+  507  ros2 run turtlebot3_teleop teleop_keyboard 
+  508  ros2 topic list
+  509  ros2 launch turtlebot3_gazebo empty_world.launch.py
+  510  ros2 run turtlebot3_teleop teleop_keyboard 
+  511  gazebo -s libgazebo_ros_init.so -s libgazebo_ros_factory.so myworld.world
+  512  gazebo -s libgazebo_ros_init.so -s libgazebo_ros_factory.so
+  513  cd ROS2Dev/
+  514  ll
+  515  cd turtlebot3_ws/
+  516  cd src/
+  517  ll
+  518  htop
+  519  echo "Installing htop"
+  520  sudo apt-get update
+  521  sudo apt update -y
+  522  sudo apt upgrade -y
+  523  sudo apt install htop -y
+  524  htop
+  525  echo "Installing htop... Done!"
+  526  vim ~/.bashrc 
+  527  ll
+  528  echo "Backup history, again"
+  529  history > bash_history_061122
