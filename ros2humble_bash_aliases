@@ -1,0 +1,9 @@
+# General aliases
+
+#alias apt-udtall='sudo apt-get -y update && sudo apt -y update && sudo apt -y upgrade'
+alias   g='git'
+alias gst='g status -sb'
+alias vim='nvim'
+alias jnb='jupyter notebook'
+alias jlb='jupyter-lab'
+#alias rosact='ros_activate'
